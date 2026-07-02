@@ -1,0 +1,8 @@
+grower,crop,n_pairs,r,p_value,significant
+Illinois,Corn,26,-0.2897,0.151139,
+Illinois,Soybeans,24,-0.4389,0.031922,*
+Iowa,Corn,26,0.6074,0.000999,***
+Iowa,Grass/Pasture,5,0.7951,0.107837,
+Iowa,Soybeans,18,0.5224,0.026133,*
+Nebraska,Corn,25,-0.4019,0.046397,*
+Nebraska,Soybeans,25,-0.5275,0.006729,**

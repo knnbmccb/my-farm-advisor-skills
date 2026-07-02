@@ -1,13 +1,12 @@
 # Field-Level Comparison EDA
 
-Custom EDA Skill - Assignment 2 - Field-Level Comparison EDA
-Skill name: field-level-comparison
-Location: my-farm-advisor/eda/field-level-comparison
-What it generates: 9 PNGs + Summmary CSV
-Output path: eda/assignment2-field-comparison/output/
-Report path: ...report/assignment2-eda-report.html
-Existing context: Untouched - no rewrites or deletions
-
+> **Custom EDA Skill — Assignment 2**
+>
+> **Name:** `field-level-comparison`  
+> **Location:** `my-farm-advisor/eda/field-level-comparison/`  
+> **Generates:** 9 static PNG visualizations (boundary, CDL, weather comparisons) + `eda_summary.csv` + NDVI-yield correlation analysis  
+> **Report:** `examples/report/assignment2-eda-report.html`  
+> **Example outputs:** `examples/output/`  
 
 Compare field boundaries, CDL/cropland data, and weather across growers for exploratory data analysis.
 
