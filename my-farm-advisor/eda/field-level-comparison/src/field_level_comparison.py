@@ -551,11 +551,62 @@ def generate_summary_csv(growers: list[str], data_root: Path, out_dir: Path) -> 
 
 
 # ---------------------------------------------------------------------------
+# Category D: Geospatial Map
+# ---------------------------------------------------------------------------
+
+def plot_field_locations_map(growers: list[str], data_root: Path, out_dir: Path) -> None:
+    """Geospatial map showing field polygon locations per grower on lat/lon axes."""
+    n = len(growers)
+    fig, axes = plt.subplots(1, n, figsize=(6 * n, 6))
+
+    if n == 1:
+        axes = [axes]
+
+    for idx, g in enumerate(growers):
+        ax = axes[idx]
+        farms_dir = data_root / "growers" / g / "farms"
+
+        for farm_dir in sorted(farms_dir.iterdir()):
+            if not farm_dir.is_dir():
+                continue
+            gdf = _load_boundary(g, farm_dir.name, data_root)
+            if gdf.empty:
+                continue
+
+            name = GROWER_NAMES.get(g, g)
+            color = GROWER_COLORS.get(name, "#888")
+            gdf.plot(ax=ax, color=color, edgecolor="white", linewidth=1, alpha=0.6)
+
+            # Annotate centroids with field IDs
+            for _, row in gdf.iterrows():
+                cent = row.geometry.centroid
+                fid_short = str(row.get("field_id", ""))[-12:]
+                ax.annotate(
+                    fid_short,
+                    xy=(cent.x, cent.y),
+                    fontsize=5,
+                    ha="center",
+                    va="center",
+                    color="white",
+                    fontweight="bold",
+                )
+
+        ax.set_title(f"{name} — Field Locations", fontweight="bold")
+        ax.set_xlabel("Longitude")
+        ax.set_ylabel("Latitude")
+        ax.grid(True, alpha=0.3)
+        ax.set_aspect("auto")
+
+    plt.tight_layout()
+    _savefig(out_dir / "12_field_locations_map.png")
+
+
+# ---------------------------------------------------------------------------
 # Orchestrator
 # ---------------------------------------------------------------------------
 
 def run_all_analyses(growers: list[str], data_root: Path, out_dir: Path) -> None:
-    """Run all 9 visualizations + summary CSV."""
+    """Run all 10 visualizations + summary CSV."""
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -574,7 +625,10 @@ def run_all_analyses(growers: list[str], data_root: Path, out_dir: Path) -> None
     plot_cumulative_precipitation(growers, data_root, out_dir)
     plot_precip_vs_temperature(growers, data_root, out_dir)
 
+    print("\n=== Category D: Geospatial Map ===")
+    plot_field_locations_map(growers, data_root, out_dir)
+
     print("\n=== Summary ===")
     generate_summary_csv(growers, data_root, out_dir)
 
-    print(f"\n✓ All outputs written to: {out_dir}")
+    print(f"\n✓ All 10 visualizations + CSV written to: {out_dir}")
