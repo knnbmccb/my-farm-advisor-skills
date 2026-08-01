@@ -29,6 +29,7 @@ Use My Farm Advisor as the umbrella skill for agricultural data-science and farm
 Open the subtree index that matches the request:
 
 - [Admin](admin/INDEX.md)
+- [Dashboard](dashboard/grower-field-dashboard/README.md)
 - [Data Sources](data-sources/INDEX.md)
 - [EDA](eda/INDEX.md)
 - [Field Management](field-management/INDEX.md)
@@ -43,6 +44,7 @@ Open the subtree index that matches the request:
 - Use **Imagery** for Landsat or Sentinel-2 scene acquisition and vegetation products.
 - Use **Soil** for SSURGO and CDL-derived soil and crop-layer analysis.
 - Use **EDA** for exploration, comparisons, correlations, visualization, and time series.
+- Use **Dashboard** for integrated grower field dashboards with KPIs, interactive maps, and decision support.
 - Use **Data Sources** for canonical data rebuilds and farm-level intelligence reporting.
 - Use **Strategy** for maturity planning and crop-strategy decisions.
 - Use **Weather** for NASA POWER weather acquisition and downstream farm weather analysis.
