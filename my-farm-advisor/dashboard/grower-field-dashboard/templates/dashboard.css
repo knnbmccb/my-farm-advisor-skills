@@ -1,0 +1,62 @@
+/* Grower Field Dashboard — Core Styles */
+
+html, body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f8; }
+.container { max-width: 1400px; margin: 0 auto; padding: 16px; }
+.header { background: #1a472a; color: white; padding: 16px 24px; border-radius: 8px; margin-bottom: 16px; }
+.header h1 { margin: 0; font-size: 22px; }
+.header p { margin: 4px 0 0; font-size: 13px; opacity: 0.85; }
+
+/* Filter bar */
+.filter-bar { display: flex; gap: 16px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+.filter-bar label { font-size: 12px; font-weight: 600; }
+.filter-bar select { border: none; border-radius: 4px; padding: 4px 8px; font-size: 12px; margin-left: 4px; }
+
+/* KPI grid */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.kpi-card { background: white; border-radius: 8px; padding: 12px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.kpi-icon { font-size: 22px; margin-bottom: 4px; }
+.kpi-card .value { font-size: 20px; font-weight: 700; color: #1a472a; }
+.kpi-card .label { font-size: 11px; color: #666; margin-top: 2px; }
+.kpi-delta { font-size: 11px; margin-top: 4px; }
+.kpi-delta.up { color: #2E8B57; }
+.kpi-delta.down { color: #DAA520; }
+.kpi-delta.flat { color: #888; }
+.kpi-status { font-size: 10px; margin-top: 4px; font-weight: 600; padding: 2px 6px; border-radius: 4px; display: inline-block; }
+.kpi-status.healthy { background: #d4edda; color: #155724; }
+.kpi-status.moderate { background: #fff3cd; color: #856404; }
+.kpi-status.atrisk { background: #f8d7da; color: #721c24; }
+.kpi-status.na { background: #e2e3e5; color: #6c757d; }
+
+/* Sections */
+.section { background: white; border-radius: 8px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.section h2 { margin: 0 0 10px; font-size: 16px; color: #1a472a; border-bottom: 2px solid #e8ecef; padding-bottom: 6px; }
+.narrative { background: #f0f7f4; border-left: 4px solid #2d6a4f; padding: 10px 14px; border-radius: 6px; margin-bottom: 12px; font-size: 13px; }
+
+/* Chart grid */
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.chart-full { grid-column: 1 / -1; }
+.chart-container { min-height: 300px; }
+
+/* Map */
+.map-container { min-height: 400px; }
+.map-wrapper { position: relative; }
+.map-scene-info { font-size: 11px; color: #555; padding: 4px 8px; text-align: center; background: rgba(255,255,255,0.85); border-radius: 4px; margin-top: 4px; }
+.map-toggle-bar { position: absolute; top: 10px; left: 10px; z-index: 100; display: flex; gap: 6px; background: white; padding: 6px 8px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); font-size: 12px; }
+.map-toggle-bar button { border: none; padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; background: #e8ecef; color: #555; }
+.map-toggle-bar button.active { background: #1a472a; color: white; }
+
+/* Methodology */
+.methodology table { width: 100%; border-collapse: collapse; margin: 6px 0 12px; }
+.methodology th, .methodology td { border: 1px solid #ddd; padding: 4px 8px; text-align: left; font-size: 11px; }
+.methodology th { background: #e8ecef; font-weight: 600; }
+.methodology ul { margin: 4px 0 8px 18px; }
+
+/* Recommendations */
+.rec-list li { list-style: none; margin: 6px 0; padding: 8px 12px; background: #fef9e7; border-radius: 6px; border-left: 3px solid #DAA520; font-size: 13px; }
+.rec-list li::before { counter-increment: rec; content: counter(rec) ". "; font-weight: 700; color: #1a472a; }
+
+/* Footer */
+.footer { text-align: center; font-size: 11px; color: #999; padding: 16px; }
+
+/* Responsive */
+@media (max-width: 900px) { .chart-grid { grid-template-columns: 1fr; } }

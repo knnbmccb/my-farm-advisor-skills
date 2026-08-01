@@ -1,0 +1,14 @@
+# Large or runtime-only files — do not commit
+*.tif
+*.tiff
+*.nc
+*.h5
+*.hdf5
+*.jp2
+*.zip
+*.tar.gz
+*.7z
+
+# Generated output cache (only example outputs are committed in examples/)
+output/
+!examples/output/

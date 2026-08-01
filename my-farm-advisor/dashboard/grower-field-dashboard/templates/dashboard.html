@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{display_name}} Grower — Field Analysis Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+<style>
+/*CSS_PLACEHOLDER*/
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>{{display_name}} Grower — Field Analysis Dashboard</h1>
+<p>{{county_info}}</p>
+<div class="filter-bar">
+  <label>Year:
+    <select id="year-filter" onchange="updateDashboard()">
+      {{year_options}}
+    </select>
+  </label>
+  <label>Month:
+    <select id="month-filter" onchange="updateDashboard()">
+      {{month_options}}
+    </select>
+  </label>
+  <label>Field:
+    <select id="field-filter" onchange="updateDashboard()">
+      {{field_options}}
+    </select>
+  </label>
+</div>
+</div>
+
+<!-- KPI Grid -->
+<div class="kpi-grid" id="kpi-grid">
+{{kpi_cards}}
+</div>
+
+<!-- SECTION 1: Crop Health Overview -->
+<div class="section">
+<h2>Crop Health Overview</h2>
+<div class="narrative" id="narrative-1">{{narrative1}}</div>
+<div class="map-container chart-full">
+    <div class="map-wrapper">
+        <div class="map-toggle-bar">
+            <button id="btn-ndvi" class="active" onclick="setMapView('ndvi')">Crop Health (NDVI)</button>
+            <button id="btn-soil" onclick="setMapView('soil')">Soil Health Score</button>
+        </div>
+        {{map_html}}
+        <div class="map-scene-info" id="map-scene-info"></div>
+    </div>
+</div>
+</div>
+
+<!-- SECTION 2: Actionable Insights -->
+<div class="section">
+<h2>Actionable Insights</h2>
+<div class="narrative" id="narrative-4">{{narrative4}}</div>
+<ol class="rec-list" id="rec-list">{{rec_list_initial}}</ol>
+<h3>Most Important Variables</h3>
+{{top_vars_html}}
+</div>
+
+<!-- SECTION 3: Field Health Ranking & Drivers -->
+<div class="section">
+<h2>Field Health Ranking &amp; Drivers</h2>
+<div class="narrative" id="narrative-2">{{narrative2}}</div>
+<div class="chart-grid">
+<div class="chart-container chart-full" id="chart-correlations-container">{{chart_correlations}}</div>
+<div class="chart-container chart-full" id="chart-ndvi-variability-container">{{chart_ndvi_variability}}</div>
+</div>
+</div>
+
+<!-- SECTION 4: Soil Variability Analysis -->
+<div class="section">
+<h2>Soil Variability Analysis</h2>
+<div class="narrative" id="narrative-3">{{narrative3}}</div>
+{{methodology_html}}
+</div>
+
+<div class="footer">{{footer_text}}</div>
+
+</div>
+
+<script>
+/*JS_PLACEHOLDER*/
+</script>
+
+</body>
+</html>
